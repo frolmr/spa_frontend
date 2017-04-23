@@ -37,7 +37,7 @@ export default class App extends React.Component {
   }
 
   _fetchNews() {
-    axios.get('http://localhost:3000/api/posts').then(res => {
+    axios.get(process.env.REMOTE_HOST + '/api/posts').then(res => {
       const posts = res.data;
       this.setState({posts});
     });
@@ -56,7 +56,7 @@ export default class App extends React.Component {
   }
 
   _postPost(post) {
-    axios.post('http://localhost:3000/api/posts', {
+    axios.post(process.env.REMOTE_HOST + '/api/posts', {
       "post": {
         "username": post.username,
         "title": post.title,
