@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 export default class Post extends React.Component {
   render() {
     return (
-       <li>
-         <h4>{this.props.name}</h4>
-         <p>{this.props.description}</p>
-       </li>
-      );
+      <dl>
+        <dt>{this.props.title}</dt>
+        <dd>{this.props.body}</dd>
+        <p>User: {this.props.username}</p>
+      </dl>
+    );
   }
 }
 
 Post.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  username: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  body: PropTypes.string
 };
