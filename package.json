@@ -31,5 +31,9 @@
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"
+  },
+  "scripts": {
+    "build": "node_modules/webpack/bin/webpack.js",
+    "deploy": "aws s3 cp public s3://spafrol/public --recursive --region=us-east-1 && aws s3 cp build s3://spafrol/public --recursive --region=us-east-1"
   }
 }
