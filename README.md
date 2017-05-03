@@ -1,1 +1,1 @@
-=== Frontend application
+# SPA application (React + Redux)
