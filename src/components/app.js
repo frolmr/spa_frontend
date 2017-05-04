@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import Post from './post';
 import PostForm from './post_form';
+import { connect } from 'react-redux';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor() {
     super();
 
@@ -20,6 +21,8 @@ export default class App extends React.Component {
         <div className="row">
           <div className="col-md-6">
             <PostForm addPost={this._addPost.bind(this)}/>
+            <br />
+            <button className="btn btn-default" onClick={() => { this.props.dispatch({ type: "ADD_POST" }) }}>Test</button>
           </div>
         </div>
       </div>
@@ -65,3 +68,12 @@ export default class App extends React.Component {
     });
   }
 }
+PostForm.contextTypes = {
+  store: React.PropTypes.object
+}
+
+function mapStateToProps(state) {
+  return {state}
+}
+
+export default connect(mapStateToProps)(App)

@@ -2,6 +2,7 @@ import React from 'react';
 
 export default class PostForm extends React.Component {
   render() {
+    const { store } = this.context
     return (
       <form onSubmit={this._handleSubmit.bind(this)}>
         <div className="form-group">
