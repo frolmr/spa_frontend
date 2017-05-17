@@ -8,6 +8,7 @@ export default class Post extends React.Component {
         <dt>{this.props.title}</dt>
         <dd>{this.props.body}</dd>
         <p>User: {this.props.username}</p>
+        <button className="btn btn-danger">Delete post</button>
       </dl>
     );
   }

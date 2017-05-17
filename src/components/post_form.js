@@ -25,9 +25,11 @@ export default class PostForm extends React.Component {
   _handleSubmit(event) {
     event.preventDefault();
 
-    let username = this._username;
-    let title = this._title;
-    let body = this._body;
+    let post = {
+      username: this._username,
+      title: this._title,
+      body: this._body
+    }
 
     this.props.addPost(username.value, title.value, body.value);
   }
