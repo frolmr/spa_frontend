@@ -12,8 +12,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development'),
-        // 'REMOTE_HOST': JSON.stringify('http://ec2-54-149-82-142.us-west-2.compute.amazonaws.com')
-        'REMOTE_HOST': JSON.stringify('http://localhost:3000')
+        'REMOTE_HOST': JSON.stringify('http://ec2-54-149-82-142.us-west-2.compute.amazonaws.com')
+        // 'REMOTE_HOST': JSON.stringify('http://localhost:3000')
       }
     })
   ],

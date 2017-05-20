@@ -20,14 +20,24 @@ export const createPost = (post) => {
   };
 }
 
+export const removePost = (post_id) => {
+  return function (dispatch) {
+    return postApi.deletePost(post_id).then(post_id => {
+      dispatch(deletePost(post_id));
+    }).catch(error => {
+      throw(error);
+    });
+  }
+}
+
 export const loadPostsSuccess = (posts) => {
   return {type: 'LOAD_POSTS_SUCCESS', posts};
 }
 
 export const addPost = (post) => {
-  return {type: 'ADD_POST', post};
+  return {type: 'ADD_POST_SUCCESS', post};
 }
 
-export const removePost = () => {
-  return { type: "REMOVE_POST" }
+export const deletePost = (post_id) => {
+  return { type: "DELETE_POST_SUCCESS", post_id }
 }

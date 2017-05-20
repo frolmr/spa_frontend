@@ -12,7 +12,7 @@ export default class Posts extends React.Component {
   }
   _getPosts() {
     return this.props.posts.map((post) => {
-      return (<Post username={post.username} title={post.title} body={post.body} key={post.id}/>);
+      return (<Post username={post.username} title={post.title} body={post.body} key={post.id} id={post.id}/>);
     });
   }
 }

@@ -2,12 +2,8 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./components/App"
 import { Provider } from 'react-redux'
-import configureStore from './store/configureStore.js'
-import {loadPosts, createPost} from './actions/PostActions';
-import initialState from './reducers/initialState'
-
-const store = configureStore(initialState);
-store.dispatch(loadPosts());
+import {loadPosts, createPost, removePost} from './actions/PostActions';
+import store from './store/store'
 
 ReactDOM.render(
   <Provider store={store}>

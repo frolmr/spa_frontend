@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default class PostApi {
   static getAllPosts() {
-    return axios.get(process.env.REMOTE_HOST + '/api/posts').then(res => {
-      return res.data;
+    return axios.get(process.env.REMOTE_HOST + '/api/posts').then(response => {
+      return response.data;
     }).catch(error => {
       return error;
     });
@@ -16,10 +16,18 @@ export default class PostApi {
           "title": post.title,
           "body": post.body
         }
-      }).then(res => {
-        return res.data;
+      }).then(response => {
+        return response.data;
       }).catch(error => {
         return error;
       });
+  }
+
+  static deletePost(post_id) {
+    return axios.delete(process.env.REMOTE_HOST + '/api/posts/' + post_id).then(response => {
+      return post_id;
+    }).catch(error => {
+      return error;
+    });
   }
 }
