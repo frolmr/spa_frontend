@@ -1,6 +1,9 @@
 import React from 'react';
+import store from '../store/store'
+import {loadPosts, createPost, removePost} from '../actions/PostActions';
+import { connect } from 'react-redux';
 
-export default class PostForm extends React.Component {
+class PostForm extends React.Component {
   render() {
     const { store } = this.context
     return (
@@ -25,10 +28,25 @@ export default class PostForm extends React.Component {
   _handleSubmit(event) {
     event.preventDefault();
 
-    let username = this._username;
-    let title = this._title;
-    let body = this._body;
+    let post = {
+      username: this._username.value,
+      title: this._title.value,
+      body: this._body.value
+    }
 
-    this.props.addPost(username.value, title.value, body.value);
+    store.dispatch(createPost(post))
+
+    this._username.value = ''
+    this._title.value = ''
+    this._body.value = ''
+  }
+
+}
+
+function mapStateToProps(state) {
+  return {
+    posts: state.posts
   }
 }
+
+export default connect(mapStateToProps)(PostForm)

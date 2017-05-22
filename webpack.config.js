@@ -13,6 +13,7 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('development'),
         'REMOTE_HOST': JSON.stringify('http://ec2-54-149-82-142.us-west-2.compute.amazonaws.com')
+        // 'REMOTE_HOST': JSON.stringify('http://localhost:3000')
       }
     })
   ],
@@ -34,7 +35,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', "stage-0", 'react']
         }
       }
     ]

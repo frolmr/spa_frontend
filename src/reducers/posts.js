@@ -1,10 +1,15 @@
-const posts = (state = [], action) => {
+import initialState from './initialState';
+
+const posts = (state = initialState, action) => {
   switch (action.type) {
-  case "ADD_POST":
-    console.log("Hello, Redux!")
-    return state
-  default:
-    return state
+    case 'LOAD_POSTS_SUCCESS':
+      return Object.assign([], state, action.posts )
+    case "ADD_POST_SUCCESS":
+      return [ ...state, action.post ]
+    case "DELETE_POST_SUCCESS":
+        return state.filter(({ id }) => id !== action.post_id);
+    default:
+      return state
   }
 }
 
