@@ -4,6 +4,12 @@ import {loadPosts, createPost, removePost} from '../actions/PostActions';
 import { connect } from 'react-redux';
 
 class PostForm extends React.Component {
+  state = {
+    username: '',
+    title: '',
+    body: ''
+  }
+
   render() {
     const { store } = this.context
     return (
