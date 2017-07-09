@@ -30,6 +30,16 @@ export const removePost = (post_id) => {
   }
 }
 
+export const loadPost = (post_id) => {
+  return function (dispatch) {
+    return postApi.getPost(post_id).then(post => {
+      dispatch(loadPostSuccess(post));
+    }).catch(error => {
+      throw(error);
+    });
+  }
+}
+
 export const loadPostsSuccess = (posts) => {
   return {type: 'LOAD_POSTS_SUCCESS', posts};
 }
@@ -40,4 +50,8 @@ export const addPost = (post) => {
 
 export const deletePost = (post_id) => {
   return { type: "DELETE_POST_SUCCESS", post_id }
+}
+
+export const loadPostSuccess = (post) => {
+  return { type: "LOAD_POST_SUCCESS", post }
 }

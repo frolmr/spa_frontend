@@ -1,36 +1,27 @@
 import React from 'react';
-import Posts from './posts';
-import Post from './post';
-import PostForm from './post_form';
-import { connect } from 'react-redux';
-import store from '../store/store'
-import {loadPosts, createPost, removePost} from '../actions/PostActions';
+import Home from './home';
+import PostPage from './post_page';
+import NoMatch from './no_match';
+import { Route, Switch, Link } from 'react-router-dom';
 
-class App extends React.Component {
-
-  componentDidMount() {
-    store.dispatch(loadPosts())
-  }
+export default class App extends React.Component {
 
   render() {
     return (
       <div>
-        <Posts posts={this.props.posts} />
-        <div className="row">
-          <div className="col-md-6">
-            <PostForm />
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <Link to="/" className="navbar-brand">Home</Link>
+            </div>
           </div>
-        </div>
+        </nav>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/post/:id" component={PostPage} />
+          <Route component={NoMatch} />
+        </Switch>
       </div>
     );
   }
-
 }
-
-function mapStateToProps(state) {
-  return {
-    posts: state.posts
-  }
-}
-
-export default connect(mapStateToProps)(App)

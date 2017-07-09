@@ -7,7 +7,17 @@ const posts = (state = initialState, action) => {
     case "ADD_POST_SUCCESS":
       return [ ...state, action.post ]
     case "DELETE_POST_SUCCESS":
-        return state.filter(({ id }) => id !== action.post_id);
+      return state.filter(({ id }) => id !== action.post_id);
+    case "LOAD_POST_SUCCESS":
+      return state.map( (item) => {
+        if(item.id !== action.post.id) {
+          return item;
+        }
+        return {
+          ...item,
+          ...action.post
+        };
+      });
     default:
       return state
   }

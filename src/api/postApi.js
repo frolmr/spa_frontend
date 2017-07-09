@@ -30,4 +30,12 @@ export default class PostApi {
       return error;
     });
   }
+
+  static getPost(post_id) {
+    return axios.get(process.env.REMOTE_HOST + '/api/posts/' + post_id).then(response => {
+      return response.data;
+    }).catch(error => {
+      return error;
+    });
+  }
 }
