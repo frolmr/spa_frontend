@@ -1,12 +1,20 @@
 import React from 'react';
 import Post from './post';
+import { connect } from 'react-redux';
+import store from '../store/store'
+import { loadPosts } from '../actions/PostActions';
 
-export default class Posts extends React.Component {
+class Posts extends React.Component {
+  componentDidMount() {
+    store.dispatch(loadPosts())
+  }
+
   render() {
     const posts = this._getPosts();
+    const emptyMessage = (<p>There are no posts.</p>);
     return (
-      <div className="posts">
-        {posts}
+      <div className="container posts">
+        {posts.length === 0 ? emptyMessage : posts}
       </div>
     );
   }
@@ -16,3 +24,11 @@ export default class Posts extends React.Component {
     });
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    posts: state.posts
+  }
+}
+
+export default connect(mapStateToProps)(Posts)
