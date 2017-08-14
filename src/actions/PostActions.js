@@ -1,18 +1,19 @@
 import postApi from '../api/postApi';
 
-export const loadPosts = () => {
+export const loadPosts = (key) => {
   return function(dispatch) {
-    return postApi.getAllPosts().then(posts => {
+    return postApi.getAllPosts(key).then(posts => {
       dispatch(loadPostsSuccess(posts));
     }).catch(error => {
+      console.log(user)
       throw(error);
     });
   };
 }
 
-export const createPost = (post) => {
+export const createPost = (post, key) => {
   return function(dispatch) {
-    return postApi.createNewPost(post).then(post => {
+    return postApi.createNewPost(post, key).then(post => {
       dispatch(addPost(post));
     }).catch(error => {
       throw(error);
@@ -20,9 +21,9 @@ export const createPost = (post) => {
   };
 }
 
-export const removePost = (post_id) => {
+export const removePost = (post_id, key) => {
   return function (dispatch) {
-    return postApi.deletePost(post_id).then(post_id => {
+    return postApi.deletePost(post_id, key).then(post_id => {
       dispatch(deletePost(post_id));
     }).catch(error => {
       throw(error);
@@ -30,9 +31,9 @@ export const removePost = (post_id) => {
   }
 }
 
-export const loadPost = (post_id) => {
+export const loadPost = (post_id, key) => {
   return function (dispatch) {
-    return postApi.getPost(post_id).then(post => {
+    return postApi.getPost(post_id, key).then(post => {
       dispatch(loadPostSuccess(post));
     }).catch(error => {
       throw(error);

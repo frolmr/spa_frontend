@@ -6,7 +6,8 @@ import { loadPost } from '../actions/PostActions';
 class PostPage extends React.Component {
   componentDidMount() {
     const { match } = this.props
-    store.dispatch(loadPost(match.params.id))
+    const key = this.props.user.key
+    store.dispatch(loadPost(match.params.id, key))
   }
 
   render() {
@@ -36,7 +37,8 @@ function mapStateToProps(state, props) {
   const { match } = props;
   if (match.params.id) {
     return {
-      post: state.posts.find(item => item.id == match.params.id)
+      post: state.posts.find(item => item.id == match.params.id),
+      user: state.user
     }
   }
 }

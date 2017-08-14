@@ -1,8 +1,9 @@
 import React from 'react';
 import store from '../store/store'
 import { createPost } from '../actions/PostActions';
+import { connect } from 'react-redux'
 
-export default class PostForm extends React.Component {
+class PostForm extends React.Component {
 
   validateForm = () => {
     if (this._username.value.trim().length == 0 || this._title.value.trim().length == 0 || this._body.value.trim().length == 0) {
@@ -46,9 +47,19 @@ export default class PostForm extends React.Component {
       body: this._body.value
     }
 
-    store.dispatch(createPost(post))
+    const key = this.props.user.key
+
+    store.dispatch(createPost(post, key))
 
     this._username.value = this._title.value = this._body.value = ''
     this.validateForm()
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(PostForm)
