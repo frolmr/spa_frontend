@@ -6,7 +6,8 @@ import { loadPosts } from '../actions/PostActions';
 
 class Posts extends React.Component {
   componentDidMount() {
-    store.dispatch(loadPosts())
+    const key = this.props.user.key
+    store.dispatch(loadPosts(key))
   }
 
   render() {
@@ -27,7 +28,8 @@ class Posts extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: state.posts,
+    user: state.user
   }
 }
 
