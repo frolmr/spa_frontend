@@ -28,6 +28,9 @@ class PostPage extends React.Component {
             <td>{post_object.body}</td>
           </tr>
         </tbody>
+        <div className="text-center">
+          <img className="rounded" src={process.env.REMOTE_HOST + post_object.image.url} />
+        </div>
       </table>
     );
   }

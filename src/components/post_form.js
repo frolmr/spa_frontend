@@ -30,6 +30,10 @@ class PostForm extends React.Component {
           <input className="form-control" onChange={this.validateForm} ref={(input) => this._title = input}/>
         </div>
         <div className="form-group">
+          <label>Image URL:</label>
+          <input className="form-control" onChange={this.validateForm} ref={(input) => this._image_url = input}/>
+        </div>
+        <div className="form-group">
           <label>Body:</label>
           <textarea className="form-control" onChange={this.validateForm} ref={(textarea) => this._body = textarea}/>
         </div>
@@ -44,6 +48,7 @@ class PostForm extends React.Component {
     let post = {
       username: this._username.value,
       title: this._title.value,
+      image: this._image_url.value,
       body: this._body.value
     }
 
@@ -51,7 +56,7 @@ class PostForm extends React.Component {
 
     store.dispatch(createPost(post, key))
 
-    this._username.value = this._title.value = this._body.value = ''
+    this._username.value = this._title.value = this._image_url.value = this._body.value = ''
     this.validateForm()
   }
 }
