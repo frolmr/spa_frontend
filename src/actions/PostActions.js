@@ -1,11 +1,11 @@
 import postApi from '../api/postApi';
 
-export const loadPosts = (key) => {
+export const loadPosts = (key, page, query, order) => {
   return function(dispatch) {
-    return postApi.getAllPosts(key).then(posts => {
-      dispatch(loadPostsSuccess(posts));
+    return postApi.getAllPosts(key, page, query, order).then(data => {
+      dispatch(loadPostsSuccess(data.posts));
+      dispatch(pagination(data.pages));
     }).catch(error => {
-      console.log(user)
       throw(error);
     });
   };
@@ -55,4 +55,8 @@ export const deletePost = (post_id) => {
 
 export const loadPostSuccess = (post) => {
   return { type: "LOAD_POST_SUCCESS", post }
+}
+
+export const pagination = (pages) => {
+  return {type: 'PAGINATE_PAGE', pages}
 }
