@@ -1,0 +1,9 @@
+engines:
+  duplication:
+    enabled: false
+    config:
+      languages:
+      - ruby:
+      - javascript:
+      - php:
+      - python:

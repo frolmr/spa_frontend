@@ -40,5 +40,6 @@ export default class LoginPage extends React.Component {
     }
 
     store.dispatch(loginUser(user))
+    this.props.history.push("/");
   }
 }
