@@ -5,6 +5,7 @@ install:
 - npm i -g yarn && yarn
 before_deploy:
 - yarn build
+- gem install aws-sdk
 deploy:
   provider: s3
   access_key_id: AKIAIRXCZFNHF6FME4PQ
