@@ -21,7 +21,7 @@ export default class App extends React.Component {
                 <Link to="/login" className="navbar-link">Login</Link>
               </li>
             </ul>
-            <ul className="nav navbar-nav navbar-right"> 
+            <ul className="nav navbar-nav navbar-right">
               <li>
                 <Search />
               </li>
