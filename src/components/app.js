@@ -5,6 +5,7 @@ import LoginPage from './login_page';
 import NoMatch from './no_match';
 import Search from './search'
 import { Route, Switch, Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl'
 
 export default class App extends React.Component {
 
@@ -15,10 +16,14 @@ export default class App extends React.Component {
           <div className="container-fluid">
             <ul className="nav navbar-nav navbar-left">
               <li>
-                <Link to="/" className="navbar-brand">Home</Link>
+                <Link to="/" className="navbar-brand">
+                  <FormattedMessage id='nav.homeLink' />
+                </Link>
               </li>
               <li>
-                <Link to="/login" className="navbar-link">Login</Link>
+                <Link to="/login" className="navbar-link">
+                  <FormattedMessage id='nav.loginLink' />
+                </Link>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">

@@ -3,6 +3,7 @@ import Posts from './posts';
 import PostForm from './post_form';
 import store from '../store/store'
 import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 
 class App extends React.Component {
 
@@ -10,7 +11,9 @@ class App extends React.Component {
     const loginMessage = (
       <div className="row">
         <div className="col-md-12">
-          <h2>To see the posts please login first!</h2>
+          <h2>
+            <FormattedMessage id="home.welcomeMessage" />
+          </h2>
         </div>
       </div>)
     const mainLayout = (

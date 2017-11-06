@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../store/store'
 import { createPost } from '../actions/PostActions';
 import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 
 class PostForm extends React.Component {
 
@@ -22,22 +23,32 @@ class PostForm extends React.Component {
       <form onSubmit={this._handleSubmit.bind(this)}>
       <h3>{this.props.params}</h3>
         <div className="form-group">
-          <label>Name:</label>
+          <label>
+            <FormattedMessage id="postForm.name" />:
+          </label>
           <input className="form-control" onChange={this.validateForm} ref={(input) => this._username = input}/>
         </div>
         <div className="form-group">
-          <label>Title:</label>
+          <label>
+            <FormattedMessage id="postForm.title" />:
+          </label>
           <input className="form-control" onChange={this.validateForm} ref={(input) => this._title = input}/>
         </div>
         <div className="form-group">
-          <label>Image URL:</label>
+          <label>
+            <FormattedMessage id="postForm.url" />:
+          </label>
           <input className="form-control" onChange={this.validateForm} ref={(input) => this._image_url = input}/>
         </div>
         <div className="form-group">
-          <label>Body:</label>
+          <label>
+            <FormattedMessage id="postForm.body" />:
+          </label>
           <textarea className="form-control" onChange={this.validateForm} ref={(textarea) => this._body = textarea}/>
         </div>
-        <button id='submitButton' type="submit" className={'btn btn-primary'} >Submit</button>
+        <button id='submitButton' type="submit" className={'btn btn-primary'} >
+          <FormattedMessage id="postForm.submit" />
+        </button>
       </form>
     );
   }
