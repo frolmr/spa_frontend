@@ -4,6 +4,7 @@ import PostPage from './post_page';
 import LoginPage from './login_page';
 import NoMatch from './no_match';
 import Search from './search'
+import LocaleChange from './locale_change'
 import { Route, Switch, Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl'
 
@@ -26,6 +27,7 @@ export default class App extends React.Component {
                 </Link>
               </li>
             </ul>
+            <LocaleChange />
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <Search />
