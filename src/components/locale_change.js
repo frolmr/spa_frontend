@@ -2,7 +2,6 @@ import React from 'react'
 import store from '../store/store'
 import { connect } from 'react-redux'
 import { changeLocale } from '../actions/IntlActions'
-import { updateIntl } from 'react-intl-redux'
 import msgs from '../messages'
 import { flattenMessages } from "../utils"
 

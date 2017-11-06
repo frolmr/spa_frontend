@@ -2,7 +2,6 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./components/App"
 import { Provider } from "react-redux"
-// import { IntlProvider, addLocaleData } from "react-intl"
 import { addLocaleData } from 'react-intl'
 import { IntlProvider } from "react-intl-redux"
 import {loadPosts, createPost, removePost} from "./actions/PostActions";
