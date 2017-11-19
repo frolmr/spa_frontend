@@ -14,17 +14,17 @@ export default class UserApi {
     });
   }
 
-  static getUser(key) {
+  static getUserLocale(key) {
     return axios.get(process.env.REMOTE_HOST + '/api/user',
       { headers: { Authorization: "Bearer " + key }})
       .then(response => {
-        return response.data;
+        return response.data.locale;
       }).catch(error => {
         return error;
       });
   }
 
-  static updateUser(key, user) {
+  static updateUserLocale(key, user) {
     return axios.post(process.env.REMOTE_HOST + '/api/update_user', {
       "user": {
         "locale": user.locale
