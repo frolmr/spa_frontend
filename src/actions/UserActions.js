@@ -29,7 +29,3 @@ export const updateUser = (key, locale) => {
 export const loginUserSuccess = (user) => {
   return {type: 'LOGIN_USER_SUCCESS', user}
 }
-
-export const updateUserSuccess = (user) => {
-  return {type: 'UPDATE_USER_SUCCESS', user}
-}
