@@ -5,7 +5,7 @@ import store from '../store/store'
 import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 
-class App extends React.Component {
+class Home extends React.Component {
 
   render() {
     const loginMessage = (
@@ -38,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(Home)
