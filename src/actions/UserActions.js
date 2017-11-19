@@ -16,10 +16,10 @@ export const loginUser = (user) => {
   }
 }
 
-export const updateUser = (key, user) => {
+export const updateUser = (key, locale) => {
   return function(dispatch) {
-    return userApi.updateUser(key, user).then(user => {
-      dispatch(updateUserSuccess(user));
+    return userApi.updateUserLocale(key, locale).then(response => {
+      dispatch(changeLocale(response.locale, flattenMessages(msgs[response.locale])))
     }).catch(error => {
       throw(error);
     });

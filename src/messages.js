@@ -3,6 +3,7 @@ export default {
     nav: {
       homeLink: "Home",
       loginLink: "Login",
+      profileLink: "Profile",
       searchButton: "Search"
     },
     home: {
@@ -34,6 +35,7 @@ export default {
     nav: {
       homeLink: "Главная",
       loginLink: "Войти",
+      profileLink: "Профиль",
       searchButton: "Найти"
     },
     home: {

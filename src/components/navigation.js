@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { FormattedMessage } from 'react-intl'
+import { injectIntl, FormattedMessage } from 'react-intl'
 import LocaleChange from './locale_change'
 import Search from './search'
 import { connect } from 'react-redux'
@@ -15,7 +15,13 @@ class Navigation extends React.Component {
         </Link>
       </li>
     )
-    const profile_link = (<p>zhopa</p>)
+    const profile_link = (
+      <li>
+        <Link to="/profile" className="navbar-link">
+          <FormattedMessage id='nav.profileLink' />
+        </Link>
+      </li>
+    )
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -47,4 +53,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Navigation)
+export default injectIntl(connect(mapStateToProps)(Navigation))

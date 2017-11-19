@@ -2,7 +2,7 @@ import React from 'react';
 import store from '../store/store'
 import { createPost } from '../actions/PostActions';
 import { connect } from 'react-redux'
-import { FormattedMessage } from 'react-intl'
+import { injectIntl, FormattedMessage } from 'react-intl'
 
 class PostForm extends React.Component {
 
@@ -78,4 +78,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(PostForm)
+export default injectIntl(connect(mapStateToProps)(PostForm))

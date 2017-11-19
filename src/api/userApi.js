@@ -24,10 +24,10 @@ export default class UserApi {
       });
   }
 
-  static updateUserLocale(key, user) {
+  static updateUserLocale(key, locale) {
     return axios.post(process.env.REMOTE_HOST + '/api/update_user', {
       "user": {
-        "locale": user.locale
+        "locale": locale.value
       }},
       { headers: { Authorization: "Bearer " + key }})
       .then(response => {

@@ -2,7 +2,7 @@ import React from 'react'
 import store from '../store/store'
 import { connect } from 'react-redux'
 import { loadPosts } from '../actions/PostActions'
-import { FormattedMessage } from 'react-intl'
+import { injectIntl, FormattedMessage } from 'react-intl'
 
 class Search extends React.Component {
   render() {
@@ -32,4 +32,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Search)
+export default injectIntl(connect(mapStateToProps)(Search))
