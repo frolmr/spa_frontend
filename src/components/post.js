@@ -4,6 +4,7 @@ import store from '../store/store'
 import { removePost } from '../actions/PostActions';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 
 class Post extends React.Component {
   render() {
@@ -13,10 +14,15 @@ class Post extends React.Component {
       <dl>
         <dt>{this.props.title}</dt>
         <dd>{this.props.body}</dd>
-        <p>User: {this.props.username}</p>
+        <p>
+          <FormattedMessage id="postPage.user" />: {this.props.username}</p>
         { this.props.image ? image : null }
-        <Link to={`/post/${this.props.id}`} role="button" className="btn btn-info">Show post</Link>
-        <button onClick={() => {store.dispatch(removePost(this.props.id, key))}} className="btn btn-danger">Delete post</button>
+        <Link to={`/post/${this.props.id}`} role="button" className="btn btn-info">
+          <FormattedMessage id="postButtons.show" />
+        </Link>
+        <button onClick={() => {store.dispatch(removePost(this.props.id, key))}} className="btn btn-danger">
+          <FormattedMessage id="postButtons.del" />
+        </button>
       </dl>
     );
   }

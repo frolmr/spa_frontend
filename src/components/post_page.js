@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../store/store'
 import { connect } from 'react-redux';
 import { loadPost } from '../actions/PostActions';
+import { FormattedMessage } from 'react-intl'
 
 class PostPage extends React.Component {
   componentDidMount() {
@@ -16,15 +17,21 @@ class PostPage extends React.Component {
       <table className="table">
         <tbody>
           <tr>
-            <td>User</td>
+            <td>
+              <FormattedMessage id="postPage.user" />
+            </td>
             <td>{post_object.username}</td>
           </tr>
           <tr>
-            <td>Title</td>
+            <td>
+              <FormattedMessage id="postPage.title" />
+            </td>
             <td>{post_object.title}</td>
           </tr>
           <tr>
-            <td>Body</td>
+            <td>
+              <FormattedMessage id="postPage.body" />
+            </td>
             <td>{post_object.body}</td>
           </tr>
         </tbody>

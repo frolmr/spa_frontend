@@ -2,13 +2,16 @@ import React from 'react'
 import store from '../store/store'
 import { connect } from 'react-redux'
 import { loadPosts } from '../actions/PostActions'
+import { injectIntl, FormattedMessage } from 'react-intl'
 
 class Search extends React.Component {
   render() {
     return (
       <form className="form-inline" onSubmit={this._handleSubmit.bind(this)}>
         <input className="form-control" ref={(input) => this._query = input}/>
-        <button className="btn btn-success" type="submit">Search</button>
+        <button className="btn btn-success" type="submit">
+          <FormattedMessage id="nav.searchButton" />
+        </button>
       </form>
     )
   }
@@ -29,4 +32,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Search)
+export default injectIntl(connect(mapStateToProps)(Search))
