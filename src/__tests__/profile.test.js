@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from '../components/home';
+import Profile from '../components/profile';
 import { shallow  } from 'enzyme';
 import { configure  } from 'enzyme';
 import configureStore from 'redux-mock-store'
@@ -12,6 +12,7 @@ const mockStore = configureStore();
 
 test('home component should be rendered', () => {
   const store = mockStore(initialState);
-  const wrapper = shallow(<Home store={store}/>);
+  const wrapper = shallow(<Profile store={store}/>);
     expect(wrapper).toMatchSnapshot();
 })
+

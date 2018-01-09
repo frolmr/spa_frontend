@@ -1,7 +1,6 @@
 import React from 'react';
 import Posts from './posts';
 import PostForm from './post_form';
-import store from '../store/store'
 import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 

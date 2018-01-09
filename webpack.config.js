@@ -36,7 +36,7 @@ module.exports = {
         loaders:
           [
             "eslint-loader",
-            "react-hot"
+            "react-hot-loader/webpack"
           ]
       },
       {

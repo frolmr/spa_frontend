@@ -1,5 +1,4 @@
-import messages from '../messages'
-import { flattenMessages } from "../utils"
+import messages from '../msgs'
 
 const locale =
   (navigator.languages && navigator.languages[0])
@@ -13,6 +12,6 @@ export default {
   user: {},
   intl: {
     locale: locale,
-    messages: flattenMessages(messages[locale])
+    messages: messages[locale]
   }
 }

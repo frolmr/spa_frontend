@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import store from '../store/store'
 import { removePost } from '../actions/PostActions';
 import { Link } from 'react-router-dom';
@@ -35,12 +34,6 @@ class Post extends React.Component {
     )
   }
 }
-
-Post.propTypes = {
-  username: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  body: PropTypes.string
-};
 
 function mapStateToProps(state) {
   return {

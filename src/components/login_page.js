@@ -12,10 +12,6 @@ export default class LoginPage extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.validateForm();
-  }
-
   render () {
     return (
       <form onSubmit={this._handleSubmit.bind(this)}>
@@ -36,6 +32,10 @@ export default class LoginPage extends React.Component {
         </button>
       </form>
     )
+  }
+
+  componentDidMount() {
+    this.validateForm();
   }
 
   _handleSubmit(event) {

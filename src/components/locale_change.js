@@ -2,8 +2,7 @@ import React from 'react'
 import store from '../store/store'
 import { connect } from 'react-redux'
 import { changeLocale } from '../actions/IntlActions'
-import msgs from '../messages'
-import { flattenMessages } from "../utils"
+import msgs from '../msgs'
 
 class LocaleChange extends React.Component {
   render() {
@@ -22,7 +21,7 @@ class LocaleChange extends React.Component {
   _changeLocale(event) {
     event.preventDefault()
     let locale = event.currentTarget.textContent
-    let messages = flattenMessages(msgs[locale])
+    let messages = msgs[locale]
     store.dispatch(changeLocale(locale, messages))
   }
 }
